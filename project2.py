@@ -39,11 +39,8 @@ def threadProducer(filename):
 
     with transactionFile:
         for line in transactionFile:
-            try:
-                params = line.split(",")
-                t = Transaction( params[0], params[1], params[2] )
-            except ValueError:
-                print('skipping')
+            params = line.split(",")
+            t = Transaction( params[0], params[1], params[2] )
 
             empty.acquire()
             lock.acquire()
